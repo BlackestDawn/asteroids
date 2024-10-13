@@ -1,6 +1,7 @@
 # this allows us to use code from
 # the open-source pygame library
 # throughout this file
+import sys
 import pygame
 from player import Player
 from asteroid import Asteroid
@@ -36,6 +37,10 @@ def main():
         screen.fill("black")
         for entity in updateable:
             entity.update(dt)
+        for entity in asteroids:
+            if entity.collision_check(player):
+                print("Game over!")
+                sys.exit()
         for entity in drawable:
             entity.draw(screen)
         pygame.display.flip()
