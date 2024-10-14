@@ -46,7 +46,7 @@ def main():
                 sys.exit()
             for bullet in shots:
                 if entity.collision_check(bullet):
-                    entity.kill()
+                    entity.split()
                     bullet.kill()
                     break
         for entity in drawable:
